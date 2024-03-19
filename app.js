@@ -1,10 +1,10 @@
 const shareFileButton = document.querySelector('#shareFileBtn');
 const shareTextButton = document.querySelector('#shareTextBtn');
 shareFileButton.addEventListener('click', () => {
-   // shareImage('https://i.pinimg.com/1200x/dc/ab/b7/dcabb7fbb2f763d680d20a3d228cc6f9.jpg');
+   // shareImage('https://content.planetplay.com/carbon-units/Ant_social.png')
    shareImage('study.png');
 });
-// shareTextButton.addEventListener('click', shareText);
+shareTextButton.addEventListener('click', shareText);
 
 async function shareImage(imageUrl) {
    console.log(`clicked shareImageAsset: ${imageUrl}`);
@@ -28,20 +28,20 @@ async function shareImage(imageUrl) {
    // TODO implements a fallback to download the file
 }
 
-// async function shareText() {
-//    console.log('clicked shareTextData');
-//    const shareData = {
-//       title: 'Edy Segura',
-//       text: 'Fullstack Software Engineer',
-//       url: document.location.origin,
-//    };
-//    if (navigator.share) {
-//       navigator.share(shareData).catch(console.error);
-//    } else {
-//       await navigator.clipboard.writeText(shareData.url);
-//       shareTextButton.textContent = 'Copied to clipboard';
-//       setTimeout(() => {
-//          shareTextButton.textContent = 'Share Text';
-//       }, 3000);
-//    }
-// }
+async function shareText() {
+   console.log('clicked shareTextData');
+   const shareData = {
+      title: 'Edy Segura',
+      text: 'Fullstack Software Engineer',
+      url: document.location.origin,
+   };
+   if (navigator.share) {
+      navigator.share(shareData).catch(console.error);
+   } else {
+      await navigator.clipboard.writeText(shareData.url);
+      shareTextButton.textContent = 'Copied to clipboard';
+      setTimeout(() => {
+         shareTextButton.textContent = 'Share Text';
+      }, 3000);
+   }
+}
