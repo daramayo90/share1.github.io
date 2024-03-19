@@ -1,8 +1,8 @@
 const shareFileButton = document.querySelector('#shareFileBtn');
 const shareTextButton = document.querySelector('#shareTextBtn');
 shareFileButton.addEventListener('click', () => {
-   shareImage('https://i.pinimg.com/1200x/dc/ab/b7/dcabb7fbb2f763d680d20a3d228cc6f9.jpg');
-   // shareImage('study.png');
+   // shareImage('https://i.pinimg.com/1200x/dc/ab/b7/dcabb7fbb2f763d680d20a3d228cc6f9.jpg');
+   shareImage('study.png');
 });
 // shareTextButton.addEventListener('click', shareText);
 
