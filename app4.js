@@ -53,17 +53,21 @@ export async function Share(element) {
    } else {
       options.forEach((option) => {
          if (shareData[option]) {
-            // Check if option exists in shareData
+            const imageUrl =
+               'https://i.pinimg.com/1200x/dc/ab/b7/dcabb7fbb2f763d680d20a3d228cc6f9.jpg';
+            // Modifying the share URL to point directly to the image for simplicity
+            // Note: This does not ensure the image will be embedded in the share on all platforms.
+            console.log(`${shareData[option].url}${encodeURIComponent(imageUrl)}`);
             const shareLink = h(
                'a',
                {
                   'aria-label': `${element.dataset.shareLabel} ${option}`,
                   'data-share-item': option,
-                  href: shareData[option].url + encodeURIComponent(location.href),
+                  href: `${shareData[option].url}${encodeURIComponent(imageUrl)}`,
                   rel: 'noopener noreferrer',
                   target: '_blank',
                },
-               [h('i', {}, [option])], // Added text inside link for clarity
+               [h('i', {}, [option])], // Display the platform option text
             );
             element.appendChild(shareLink);
          }
