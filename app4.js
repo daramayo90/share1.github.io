@@ -28,12 +28,12 @@ export async function Share(element) {
          // Assume 'path/to/your/image.jpg' is a path to the image you want to share
          // This could also be a blob or file object directly obtained from an input field or other data source
          try {
-            const imageFile = await fetch('study.png')
+            const imageFile = await fetch('test.jpg')
                .then((response) => {
                   if (!response.ok) throw new Error('Network response was not ok');
                   return response.blob();
                })
-               .then((blob) => new File([blob], 'study.png', { type: 'image/jpeg' }));
+               .then((blob) => new File([blob], 'test.jpg', { type: 'image/jpeg' }));
 
             if (navigator.canShare && navigator.canShare({ files: [imageFile] })) {
                await navigator.share({
